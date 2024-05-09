@@ -1,0 +1,21 @@
+version: "3.7"
+services:
+  DB:
+    image: postgres:15
+    container_name: db_app
+    command: -p 5435
+    expose:
+      - 5435
+    env_file:
+      - APIvenv/.env
+  app:
+    build:
+      context: .
+    env_file:
+      - APIvenv/.env
+    container_name: api
+    command: ["/api/app.sh"]
+    ports:
+      - 5555:8000
+    depends_on:
+      - DB

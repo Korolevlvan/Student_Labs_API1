@@ -1,0 +1,6 @@
+sqlalchemy
+pydantic==1.10.1
+typing
+fastapi
+gunicorn
+asyncpg
